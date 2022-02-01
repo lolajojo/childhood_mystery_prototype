@@ -5,7 +5,7 @@
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.337255, 0.278431, 0.278431, 1 )
+albedo_color = Color( 0.12549, 0.109804, 0.109804, 1 )
 
 [node name="Main" type="Node"]
 
@@ -19,3 +19,11 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../CollisionShape")
 material/0 = SubResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.572461, 0.819932, 0, -0.819932, 0.572461, 0.537312, 21.0363, 26.8522 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3394, -11 )
+light_energy = 5.01
+omni_range = 63.1768
