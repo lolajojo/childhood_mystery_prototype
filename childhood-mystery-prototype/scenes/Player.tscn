@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/lp_dummy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
 [ext_resource path="res://animations/walking.tres" type="Animation" id=3]
 [ext_resource path="res://animations/idle.tres" type="Animation" id=4]
+[ext_resource path="res://scripts/AnimationPlayer.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.0668
@@ -24,3 +25,7 @@ shape = SubResource( 1 )
 root_node = NodePath("../Pivot/lp_dummy")
 anims/idle = ExtResource( 4 )
 anims/walking = ExtResource( 3 )
+script = ExtResource( 5 )
+
+[connection signal="idling" from="." to="AnimationPlayer" method="_on_Player_idling"]
+[connection signal="start_moving" from="." to="AnimationPlayer" method="_on_Player_start_moving"]
