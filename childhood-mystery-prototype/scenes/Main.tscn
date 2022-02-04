@@ -30,6 +30,6 @@ omni_range = 63.1768
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="CameraPivot" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.28703, 4.96214 )
+transform = Transform( 1, 0, 0, 0, 0.590239, 0.807228, 0, -0.807228, 0.590239, 0, 14.1134, 10.473 )
 
 [node name="Camera" type="Camera" parent="CameraPivot"]

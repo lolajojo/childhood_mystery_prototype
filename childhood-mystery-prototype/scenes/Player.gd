@@ -8,22 +8,23 @@ export var speed = 15
 var velocity = Vector3.ZERO
 var is_moving = false
 
+
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	
-	if Input.is_action_pressed("move_forward"):
+	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
-	if Input.is_action_pressed("move_back"):
+	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_forward"):
 		direction.z -= 1
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_back"):
 		direction.z += 1
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Pivot.look_at(direction, Vector3.UP)
+		$Pivot.look_at(-(translation + direction), Vector3.UP)
 		
 		if not is_moving:
 			is_moving = true
@@ -33,6 +34,6 @@ func _physics_process(delta):
 		emit_signal("idling")
 	
 	velocity.x = speed * direction.x
-	velocity.y = speed * direction.y
+	velocity.z = speed * direction.z
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
