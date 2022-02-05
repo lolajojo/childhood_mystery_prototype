@@ -31,10 +31,11 @@ light_energy = 5.01
 omni_range = 63.1768
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+rotation_ref_nodePath = NodePath("CameraPivot")
 
-[node name="Position3D" type="Position3D" parent="Player"]
+[node name="CameraPivot" type="Position3D" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.74677, 0 )
 script = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="Player/Position3D"]
+[node name="Camera" type="Camera" parent="Player/CameraPivot"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.264098, -5.7336 )

@@ -4,12 +4,21 @@ signal start_moving
 signal idling
 
 export var speed = 15
+export(NodePath) var rotation_ref_nodePath
+export(NodePath) var pivot_point
 
 var velocity = Vector3.ZERO
 var is_moving = false
+var rotation_ref_node
+
+
+func _enter_tree():
+	rotation_ref_node = get_node(rotation_ref_nodePath)
 
 
 func _physics_process(delta):
+	correct_rotation()
+	
 	var direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("move_left"):
@@ -24,7 +33,7 @@ func _physics_process(delta):
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		$Pivot.look_at(-(translation + direction), Vector3.UP)
+		# $Pivot.look_at(-(translation + direction), Vector3.UP)
 		
 		if not is_moving:
 			is_moving = true
@@ -37,3 +46,7 @@ func _physics_process(delta):
 	velocity.z = speed * direction.z
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+
+func correct_rotation():
+	get_node(pivot_point).rotation.y = rotation_ref_node.rotation.y
