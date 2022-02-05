@@ -20,6 +20,10 @@ func _physics_process(delta):
 	if is_moving:
 		correct_rotation()
 	
+	handle_movement(delta)
+
+
+func handle_movement(delta):
 	var direction = Vector3.ZERO
 	
 	if Input.is_action_pressed("move_left"):
