@@ -7,6 +7,7 @@ export var speed = 15
 export(NodePath) var rotation_ref_nodePath
 export(NodePath) var pivot_point
 
+
 var velocity = Vector3.ZERO
 var is_moving = false
 var rotation_ref_node

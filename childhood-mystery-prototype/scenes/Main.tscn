@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/MouseRotationPoint.gd" type="Script" id=2]
+[ext_resource path="res://scripts/MouseRotationPoint.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
@@ -39,3 +39,9 @@ script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="Player/CameraPivot"]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.264098, -5.7336 )
+
+[node name="PointToLookAt" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77421, 7.69795, 10.213 )
+
+[editable path="Player"]
+[editable path="Player/Pivot/lp_dummy"]
