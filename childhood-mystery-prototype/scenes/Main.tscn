@@ -48,6 +48,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77421, 7.69795, 10.213 )
 script = ExtResource( 4 )
 skeleton_path = NodePath("../Player/Pivot/lp_dummy/Armature/Skeleton")
 bone_name = "Head"
+max_rotation = Vector3( 10, 20, 30 )
+min_rotation = Vector3( -10, -20, -30 )
 
 [node name="Spatial" type="Spatial" parent="PointToLookAt"]
 
