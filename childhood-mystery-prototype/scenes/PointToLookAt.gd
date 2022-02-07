@@ -20,12 +20,17 @@ func _physics_process(delta):
 	
 	rest_global_pose = rest_global_pose.looking_at(target_position, Vector3.UP)
 	rest_global_pose.basis = rest_global_pose.basis.rotated(rest_global_pose.basis.y, deg2rad(180.0))
-	
-	var rotationAngle = rest_global_pose.basis.get_euler().y
-	
-	if rotationAngle > max_angle:
-		rest_global_pose.basis = rest_global_pose.basis.rotated(rest_global_pose.basis.y, -(rotationAngle - max_angle))
-	elif rotationAngle < min_angle:
-		rest_global_pose.basis = rest_global_pose.basis.rotated(rest_global_pose.basis.y, min_angle - rotationAngle)
+	rest_global_pose.basis = correct_basis_with_limits(rest_global_pose.basis)
 	
 	skeleton_node.set_bone_global_pose_override(bone_id, rest_global_pose, 1.0, true)
+
+
+func correct_basis_with_limits(basis: Basis):
+	var rotationAngle = basis.get_euler().y
+	
+	if rotationAngle > max_angle:
+		basis = basis.rotated(basis.y, -(rotationAngle - max_angle))
+	elif rotationAngle < min_angle:
+		basis = basis.rotated(basis.y, min_angle - rotationAngle)
+	
+	return basis
