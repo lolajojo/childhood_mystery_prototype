@@ -16,6 +16,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if skeleton_node == null:
+		return
+	
 	var bone_id = skeleton_node.find_bone(bone_name)
 	var rest_global_pose: Transform = skeleton_node.get_bone_global_pose(bone_id)
 	var target_position = skeleton_node.global_transform.xform_inv(global_transform.origin)
