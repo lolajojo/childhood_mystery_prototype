@@ -27,7 +27,7 @@ func _exit_tree():
 
 
 func _physics_process(delta):
-	if skeleton_node == null:
+	if skeleton_node == null || target_node == null:
 		return
 	
 	var bone_id = skeleton_node.find_bone(bone_name)

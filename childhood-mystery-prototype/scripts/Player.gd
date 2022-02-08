@@ -4,17 +4,19 @@ signal start_moving
 signal idling
 
 export var speed = 15
-export(NodePath) var rotation_ref_nodePath
+export(NodePath) var rotation_ref_node_path
 export(NodePath) var pivot_point
 
 
 var velocity = Vector3.ZERO
 var is_moving = false
-var rotation_ref_node
+var rotation_ref_node: Node
+var pivot_node: Node
 
 
-func _enter_tree():
-	rotation_ref_node = get_node(rotation_ref_nodePath)
+func _ready():
+	rotation_ref_node = get_node(rotation_ref_node_path)
+	pivot_node = get_node(pivot_point)
 
 
 func _physics_process(delta):
@@ -23,7 +25,7 @@ func _physics_process(delta):
 	
 	handle_movement(delta)
 
-
+# TODO: Simplify this method
 func handle_movement(delta):
 	var direction = Vector3.ZERO
 	
@@ -39,7 +41,9 @@ func handle_movement(delta):
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
-		direction = direction.rotated(Vector3.UP, get_node(pivot_point).rotation.y)
+		
+		if pivot_node != null:
+			direction = direction.rotated(Vector3.UP, pivot_node.rotation.y)
 		
 		if not is_moving:
 			is_moving = true
@@ -55,4 +59,7 @@ func handle_movement(delta):
 
 
 func correct_rotation():
-	get_node(pivot_point).rotation.y = rotation_ref_node.rotation.y
+	if pivot_node == null || rotation_ref_node == null:
+		return
+	
+	pivot_node.rotation.y = rotation_ref_node.rotation.y
