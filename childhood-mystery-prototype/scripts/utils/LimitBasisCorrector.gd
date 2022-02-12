@@ -4,7 +4,10 @@ extends Object
 class_name LimitBasisCorrector
 
 
-func correct_basis_with_limits(basis: Basis, min_rotation: Vector3, max_rotation: Vector3):
+func correct_basis_with_limits(
+	basis: Basis,
+	min_rotation: Vector3, 
+	max_rotation: Vector3) -> Basis:
 	var x_rotation_angle = basis.get_euler().x
 	basis = _correct_basis_within_limits(basis, 
 										basis.x, 
@@ -29,7 +32,12 @@ func correct_basis_with_limits(basis: Basis, min_rotation: Vector3, max_rotation
 	return basis
 
 
-func _correct_basis_within_limits(basis: Basis, axis, rotation_angle, min_angle, max_angle):
+func _correct_basis_within_limits(
+	basis: Basis,
+	axis,
+	rotation_angle,
+	min_angle,
+	max_angle) -> Basis:
 	if rotation_angle > max_angle:
 		basis = basis.rotated(axis, -(rotation_angle - max_angle))
 	elif rotation_angle < min_angle:
