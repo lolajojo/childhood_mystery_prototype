@@ -28,7 +28,7 @@ func correct_basis_with_limits(
 	print("z rotation")
 	var z_rotation_angle = basis.get_euler().z
 	basis = _correct_basis_within_limits(basis, 
-										basis.y, 
+										basis.z, 
 										z_rotation_angle, 
 										deg2rad(min_rotation.z), 
 										deg2rad(max_rotation.z))
@@ -46,8 +46,7 @@ func _correct_basis_within_limits(
 	print("Starting rotation for basis: ", basis, " with rotation angle: ", rad2deg(rotation_angle))
 	if rotation_angle > max_angle:
 		basis = basis.rotated(axis, -(rotation_angle - max_angle))
-		basis = Basis()
-		print("Fixing basis because exceeded: ", basis, "deg diff: ", -rad2deg(rotation_angle - max_angle))
+		print("Fixing basis because exceeded: ", basis, "deg diff: ", rad2deg(-rotation_angle + max_angle))
 	elif rotation_angle < min_angle:
 		basis = basis.rotated(axis, min_angle - rotation_angle)
 		print("Fixing basis because not enough: ", basis, "deg diff: ", rad2deg(min_angle - rotation_angle))

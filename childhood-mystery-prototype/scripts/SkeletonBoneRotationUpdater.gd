@@ -7,6 +7,8 @@ export(String) var bone_name
 var skeleton_node: Skeleton
 var _basis_corrector: LimitBasisCorrector
 
+export(Vector3) var min_rotation_vector = Vector3(-45, -90, -30)
+export(Vector3) var max_rotation_vector = Vector3(45, 90, 30)
 
 func _ready():
 	skeleton_node = get_node(skeleton_path)
@@ -33,6 +35,7 @@ func rotate_bone(rotation_vector: Vector3):
 	var angle_to_rotate = rotation_vector - bone_rotation
 	
 	bone_pose.basis = _rotate_basis(bone_pose.basis, angle_to_rotate)
+	bone_pose.basis = _basis_corrector.correct_basis_with_limits(bone_pose.basis, min_rotation_vector, max_rotation_vector)
 	
 	skeleton_node.set_bone_global_pose_override(bone_id, bone_pose, 1.0, true)
 
