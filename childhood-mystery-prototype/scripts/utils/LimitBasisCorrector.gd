@@ -1,7 +1,7 @@
-extends Object
-
-
 class_name LimitBasisCorrector
+
+
+extends Object
 
 
 func correct_basis_with_limits(

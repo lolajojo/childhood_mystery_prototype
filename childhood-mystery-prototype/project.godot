@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Object",
+"class": "BasisRotator",
+"language": "GDScript",
+"path": "res://scripts/utils/basis_rotator.gd"
+}, {
+"base": "Object",
 "class": "LimitBasisCorrector",
 "language": "GDScript",
 "path": "res://scripts/utils/LimitBasisCorrector.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://addons/WAT/test/test.gd"
 } ]
 _global_script_class_icons={
+"BasisRotator": "",
 "LimitBasisCorrector": "",
 "WAT": "",
 "WATTest": ""
