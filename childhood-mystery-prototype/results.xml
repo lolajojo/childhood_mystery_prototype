@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<testsuites failures="0" name="TestXML" tests="2" time="0.043">
+<testsuites failures="0" name="TestXML" tests="2" time="0.056">
 	<testsuite name="Basis Limiter S" failures="0"  tests="9" time="0">
 		<testcase name=" rotation under min limit x normale" time="0"></testcase>
 		<testcase name=" rotation above limit plus 2pi y normale" time="0"></testcase>
@@ -12,10 +12,12 @@
 		<testcase name=" rotation above limit plus 2pi z normale" time="0"></testcase>
 	</testsuite>
 
-	<testsuite name="Basis Rotator S" failures="0"  tests="3" time="0">
+	<testsuite name="Basis Rotator S" failures="0"  tests="5" time="0">
 		<testcase name=" y normale rotation" time="0"></testcase>
 		<testcase name=" z normale rotation" time="0"></testcase>
 		<testcase name=" x normale rotation" time="0"></testcase>
+		<testcase name=" two axis rotation" time="0"></testcase>
+		<testcase name=" three axis rotation" time="0"></testcase>
 	</testsuite>
 
 </testsuites>
