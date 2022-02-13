@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<testsuites failures="0" name="TestXML" tests="1" time="0.015">
+<testsuites failures="0" name="TestXML" tests="1" time="0.023">
 	<testsuite name="Basis Limiter S" failures="0"  tests="9" time="0">
-		<testcase name=" rotation above max limit x normale" time="0"></testcase>
-		<testcase name=" rotation above max limit y normale" time="0"></testcase>
 		<testcase name=" rotation above limit plus 2pi x normale" time="0"></testcase>
-		<testcase name=" rotation under min limit x normale" time="0"></testcase>
-		<testcase name=" rotation above max limit z normale" time="0"></testcase>
-		<testcase name=" rotation above limit plus 2pi z normale" time="0"></testcase>
-		<testcase name=" rotation above limit plus 2pi y normale" time="0"></testcase>
 		<testcase name=" rotation under min limit y normale" time="0"></testcase>
 		<testcase name=" rotation under min limit z normale" time="0"></testcase>
+		<testcase name=" rotation above limit plus 2pi y normale" time="0"></testcase>
+		<testcase name=" rotation above max limit z normale" time="0"></testcase>
+		<testcase name=" rotation above max limit x normale" time="0"></testcase>
+		<testcase name=" rotation above max limit y normale" time="0"></testcase>
+		<testcase name=" rotation under min limit x normale" time="0"></testcase>
+		<testcase name=" rotation above limit plus 2pi z normale" time="0"></testcase>
 	</testsuite>
 
 </testsuites>
